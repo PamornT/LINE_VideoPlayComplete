@@ -27,7 +27,7 @@ exports.LINEwebhook = functions.region(region).https.onRequest(async(request, re
    // Handle events
    events.forEach(async(event) => {
       if (event.type === 'videoPlayComplete') {
-         await savePointVideoComlete(event)
+         await savePointVideoComplete(event)
       }
       console.log(event)
    })
@@ -35,7 +35,7 @@ exports.LINEwebhook = functions.region(region).https.onRequest(async(request, re
    return
 });
 
-const savePointVideoComlete = async(event) => {
+const savePointVideoComplete = async(event) => {
    const replyToken = event.replyToken
    let messages = ''
    const pointExists = await checkPointExists(event)
